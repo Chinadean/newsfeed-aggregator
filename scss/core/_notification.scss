@@ -1,0 +1,118 @@
+
+//
+// Alerts
+// --------------------------------------------------
+
+
+.alert-top{
+  margin-top: 1.5rem;
+  padding-left: 50px;
+  .alert-content {
+    > p + p {
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-top{
+  &.alert-success {
+    @include alert-variant($icon-success);
+  }
+
+  &.alert-info {
+    @include alert-variant($icon-info);
+  }
+
+  &.alert-warning {
+    @include alert-variant($icon-warning);
+  }
+
+  &.alert-danger {
+    @include alert-variant($icon-danger);
+  }
+}
+
+
+// Top Notification
+
+.alert {
+  &.notification {
+    margin: 1.5rem auto 3rem;
+    position: relative;
+    padding: 0;
+    border: 0;
+    color: $text-color;
+
+    @include box-shadow(0 3px 5px rgba(0, 0, 0, 0.125));
+    border-radius: 3px;
+    // Headings for larger alerts
+    h4 {
+      margin-top: 0;
+      // Specified for the h4 to prevent conflicts of changing $headings-color
+      color: inherit;
+    }
+
+    // Provide class for links that match alerts
+
+    // Improve alignment and spacing of inner content
+    > p,
+    > ul {
+      margin-bottom: 0;
+    }
+
+    .notification-content {
+      > p + p {
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.notification-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.notification-dismissible {
+  padding-right: (1rem + 20);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: 21px;
+    color: inherit;
+  }
+}
+
+// Notification  styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.notification-default {
+  @include notification-variant($gray-600, $gray-600, $gray-600, $icon-info);
+}
+
+.notification-success {
+  @include notification-variant($success, $success, darken($success, 10%), $icon-success);
+}
+
+.notification-info {
+  @include notification-variant($info, $info, darken($info, 10%), $icon-info);
+}
+
+.notification-warning {
+  @include notification-variant($warning, $warning, $warning, $icon-warning);
+}
+
+.notification-danger {
+  @include notification-variant($danger, $danger, $danger, $icon-danger);
+}

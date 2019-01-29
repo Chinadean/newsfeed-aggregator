@@ -1,0 +1,22 @@
+.newsticker {
+  color: $white;
+  display: flex;
+  background: lighten($primary, 10%);
+  .title {
+    text-align: center;
+    padding: 10px 15px;
+    background: $primary;
+    float: left;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .news {
+
+    padding: 10px 15px;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

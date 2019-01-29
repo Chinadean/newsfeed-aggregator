@@ -1,0 +1,41 @@
+.progress-xs {
+  height: 4px;
+}
+
+.progress-sm {
+  height: 8px;
+}
+
+.progress-lg {
+  height: 1.25rem;
+}
+
+.progress {
+  position: relative;
+  border-radius: 2rem;
+  box-shadow: none;
+  .progress-bar  {
+  border-radius: 2rem;
+  }
+  .progress-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: $white;
+     text-shadow: 0px 0px 5px rgba(0, 0, 0, .9);
+  }
+  .passwordMeter{
+    -webkit-transition: width 0.6s ease, background-color 0.5s ease-in-out;
+    -moz-transition: width 0.6s ease, background-color 0.5s ease-in-out;
+    -ms-transition: width 0.6s ease, background-color 0.5s ease-in-out;
+    -o-transition: width 0.6s ease, background-color 0.5s ease-in-out;
+    transition: width 0.6s ease, background-color 0.5s ease-in-out;
+  }
+}
+// White progress bar
+.progress-white {
+  background-color: rgba(255,255,255,.2) !important;
+  .progress-bar {
+    background-color: #fff;
+  }
+}

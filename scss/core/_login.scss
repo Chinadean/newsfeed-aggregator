@@ -1,0 +1,36 @@
+.panel-wrapper{
+  .brand-logo {
+    width: 150px;
+  }
+  .brand-logo-symbol {
+    width: 50px;
+  }
+  .main-panel {
+    width: 100%;
+    background-color: $white;
+    .main-container {
+      height: 100%;
+
+      .main-header{
+        width: 100%;
+        padding: 30px 0;
+      }
+      .main-body-wrap {
+        height: 100%;
+        width: 100%;
+        .main-body {
+          height: 100%;
+          width: 100%;
+
+          .main-content {
+            margin: 0 auto;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .feature-panel {
+    width: 500px;
+  }
+}

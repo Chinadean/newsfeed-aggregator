@@ -1,0 +1,134 @@
+//
+// Basic Bootstrap table
+//
+
+.table {
+  tr {
+    &:first-child {
+      td {
+        border-top: 0;
+      }
+    }
+  }
+  td {
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+  thead th {
+    border: none;
+    text-transform: uppercase;
+    font-size: .75rem;
+    padding: 1rem 0.75rem;
+  }
+
+  tbody + tbody {
+    border-top: (2 * $table-border-width) solid $table-border-color;
+  }
+
+  .user,
+  .data {
+    .title {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .subtitle {
+      color: $text-gray;
+      font-size: .875rem;
+    }
+    .subtitle-block {
+      color: $text-gray;
+      font-size: .875rem;
+      display: inline-block;
+    }
+    .description {
+      color: $text-gray;
+      font-size: .875rem;
+      width: 100%;
+      max-width: 420px;
+    }
+  }
+  .country {
+    .title {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+}
+
+// Dark styles
+//
+// Same table markup, but inverted color scheme: dark background and light text.
+
+// stylelint-disable-next-line no-duplicate-selectors
+.table {
+  .thead-dark {
+    th {
+      color: $table-dark-color;
+      background-color: $table-dark-bg;
+      border-color: $table-dark-border-color;
+    }
+  }
+
+  .thead-light {
+    th {
+      color: $table-head-color;
+      background-color: $table-head-bg;
+      border: none;
+    }
+  }
+}
+
+.table-dark {
+  color: $table-dark-color;
+  background-color: $table-dark-bg;
+
+  th,
+  td,
+  thead th {
+    border-color: $table-dark-border-color;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: $table-dark-accent-bg;
+    }
+  }
+
+  &.table-hover {
+    tbody tr {
+      @include hover {
+        background-color: $table-dark-hover-bg;
+      }
+    }
+  }
+}
+
+
+.table-outline {
+  border: 1px solid $table-border-color;
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+.table-align-middle {
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+.table-clear {
+  td {
+    border: 0;
+  }
+}
+
+.hidden_header {
+  display: none;
+}

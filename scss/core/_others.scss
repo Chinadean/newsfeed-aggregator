@@ -1,0 +1,196 @@
+// scss-lint:disable QualifyingElement
+hr.transparent {
+  border-top: 1px solid transparent;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0 !important;
+    padding-left:0 !important;
+}
+
+.no-gutter-left{
+    padding-left:0 !important;
+}
+
+.no-gutter-right{
+    padding-right:0 !important;
+}
+
+.ctitle{
+  color:#E6455B !important
+}
+
+.row_scroll {
+  overflow: hidden;
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  position: relative;
+  display: flex !important;
+
+  &.top-widget {
+    margin-bottom: 3 * $spacer;
+    @include box-shadow (0 3px 5px rgba($black, .125));
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    background: #ffffff;
+  }
+
+  &::-webkit-scrollbar {
+    position: absolute;
+    height: 8px;
+    margin-left: -10px;
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: darken($sidebar-bg, 2%);
+    border-right: 1px solid darken($sidebar-bg, 5%);
+    border-left: 1px solid darken($sidebar-bg, 5%);
+    border-radius: 0.25rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 10px;
+    background-color: darken($sidebar-bg, 10%);
+    background-clip: content-box;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.25rem;
+  }
+
+  .col_slide {
+    min-width: fit-content;
+    display: inline-block;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+svg text { font-family: Roboto; }
+
+svg text.label { font-size: 22px; }
+
+svg text.rate {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.qr-box {
+  text-align: center;
+  .qr {
+    width: 100%;
+    max-width: 150px;
+    background: #ffffff;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid $gray-300;
+    margin-bottom: 10px;
+  }
+  .title {
+    font-size: .75rem;
+    color: $gray-600;
+    margin-bottom: 5px;
+  }
+  .blocktrail-logo,.crx-logo {
+    display: inline-block;
+    width: 100px;
+  }
+}
+
+.highlight-msg,.referral-msg {
+  padding: 1.25rem;
+  border-radius: 4px;
+  background-color: $gray-100;
+}
+
+.referral-msg {
+  margin: 1rem 0;
+}
+
+.user-media {
+  .img-avatar {
+    &.sm {
+      width: 38px;
+      height: 38px;
+    }
+  }
+  .title,.subtitle {
+    display: block;
+  }
+  .subtitle {
+    color: $gray-600;
+    font-size: .875rem;
+    line-height: 1;
+  }
+}
+
+.rank {
+  .rank-level {
+    text-align: center;
+    .title {
+      margin: 0;
+    }
+    .label {
+      color: rgba($text-color, .8);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .rank-user {
+      &.md {
+        width: 80px;
+        height: 80px;
+      }
+      position: relative;
+      width: 115px;
+      height: 115px;
+      margin: 0 auto;
+      .rank-avatar {
+        background-size: cover;
+        background-position: 50% 50%;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+      .rank-badge {
+        &.md {
+          width: 30px;
+        }
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 40px;
+      }
+    }
+  }
+
+  .rank-bar {
+    padding: 1.25rem;
+    background: $primary-dark;
+    border-radius: 0 0 4px 4px;
+
+    .progress {
+      .progress-label {
+        color: $primary-dark;
+        text-shadow: none;
+        font-size: .75rem;
+        margin-top: 1px;
+      }
+    }
+  }
+}
+
+.logged-user{
+  border: 3px solid #ffffff;
+  @include box-shadow(0 0 0 3px $blue);
+  &.sm {
+    border: 0;
+    @include box-shadow(0 0 0 2px $blue);
+  }
+}

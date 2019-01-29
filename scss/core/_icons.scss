@@ -1,0 +1,226 @@
+.heading-icon {
+  margin-left: 60px;
+  position: relative;
+  &:before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-size: 40px;
+    position: absolute;
+    left: -50px;
+    display: block;
+    background-repeat: no-repeat;
+  }
+}
+
+.circle-icon {
+  border-radius: 50%;
+  font-size: 1.125rem;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.payment-icon {
+  width: 40px;
+  height: 40px;
+}
+
+// State Icon
+.icon-check-circle {
+  &:before {
+    content: "\f058";
+  }
+}
+
+.icon-check-circle-o {
+  &:before {
+    content: "\f05d";
+  }
+}
+
+.icon-warning {
+  &:before {
+    content: "\f071";
+  }
+}
+
+.icon-exclamation-circle {
+  &:before {
+    content: "\f06a";
+  }
+}
+
+.icon-info-circle {
+  &:before {
+    content: "\f05a";
+  }
+}
+
+
+// Data Icon
+.icon-lion {
+  &:before {
+    content: "\44";
+    font-family: $font-lion !important;
+    font-style: normal;
+  }
+}
+
+.icon-suitcase {
+  &:before {
+    content: "\f0f2";
+  }
+}
+
+.icon-area-chart {
+  &:before {
+    content: "\f1fe";
+  }
+}
+
+.icon-users {
+  &:before {
+    content: "\f0c0";
+  }
+}
+
+.icon-flash {
+  &:before {
+    content: "\f0e7";
+  }
+}
+
+.icon-angle-double-right {
+  &:before {
+    content: "\f101";
+  }
+}
+
+.icon-arrows-h {
+  &:before {
+    content: "\f07e";
+  }
+}
+
+.icon-credit-card-alt {
+  &:before {
+    content: "\f283";
+  }
+}
+
+.icon-line-chart {
+  &:before {
+    content: "\f201";
+  }
+}
+
+.icon-phone {
+  &:before {
+    content: "\f095";
+  }
+}
+
+.icon-at {
+  &:before {
+    content: "\f1fa";
+  }
+}
+
+.icon-map {
+  &:before {
+    content: "\f279";
+  }
+}
+
+.icon-map-marker {
+  &:before {
+    content: "\f041";
+  }
+}
+
+// Social Icon
+.icon-facebook-official {
+  &:before {
+    content: "\f230";
+  }
+}
+
+.icon-twitter {
+  &:before {
+    content: "\f099";
+  }
+}
+
+
+//Modal
+
+.modal-icon-shield {
+  .modal-header {
+    &:before {
+      content: "\f132";
+    }
+  }
+}
+
+.modal-icon-newspaper-o, .modal-icon-news {
+  .modal-header {
+    &:before {
+      content: "\f1ea";
+    }
+  }
+}
+
+.modal-icon-cog {
+  .modal-header {
+    &:before {
+      content: "\f013";
+    }
+  }
+}
+
+.modal-icon-user {
+  .modal-header {
+    &:before {
+      content: "\f007";
+    }
+  }
+}
+
+.modal-icon-check, .modal-icon-success, .modal-icon-valid {
+  .modal-header {
+    &:before {
+      content: "\f00c";
+      background-color: $success !important;
+    }
+  }
+}
+
+.modal-icon-exclamation-triangle, .modal-icon-danger, .modal-icon-invalid {
+  .modal-header {
+    &:before {
+      content: "\f071";
+      background-color: $danger !important;
+    }
+  }
+}
+
+.modal-icon-exclamation-circle, .modal-icon-warning {
+  .modal-header {
+    &:before {
+      content: "\f06a";
+      background-color: $warning !important;
+    }
+  }
+}
+
+.modal-icon-info {
+  .modal-header {
+    &:before {
+      content: "\f129";
+      background-color: $info !important;
+    }
+  }
+}

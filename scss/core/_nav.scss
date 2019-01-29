@@ -1,0 +1,112 @@
+.nav-tabs {
+  .nav-link {
+    color: $gray-600;
+    &:hover {
+      cursor: pointer;
+    }
+    &.active {
+      color: $gray-800;
+      background: #fff;
+      border-color: $border-color;
+      border-bottom-color: #fff;
+      &:focus {
+        background: #fff;
+        border-color: $border-color;
+        border-bottom-color: #fff;
+      }
+    }
+  }
+}
+
+.tab-content {
+  margin-top: -1px;
+  background: #fff;
+  border: 1px solid $border-color;
+  .tab-pane {
+    padding: $spacer;
+  }
+}
+
+.card-block {
+  .tab-content {
+    margin-top: 0;
+    border: 0;
+  }
+}
+
+
+.tab-primary {
+
+  .nav-tabs {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    margin-bottom: 2rem;
+
+      .nav-item {
+        margin-bottom: -$nav-tabs-border-width;
+        padding: 0 1rem;
+      }
+
+      .nav-link {
+        padding:1rem 0;
+        border: none;
+        position: relative;
+
+        @include hover-focus {
+          color: $text-color;
+        }
+        &:after {
+          position: absolute;
+          content: '';
+          display: block;
+          margin: auto;
+          height: 0;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          @include transition($transition-base);
+        }
+
+        &.disabled {
+          color: $nav-link-disabled-color;
+          background-color: transparent;
+          border-color: transparent;
+        }
+      }
+
+      .nav-link.active,
+      .nav-item.show .nav-link {
+        color: $text-color;
+        border: 0;
+        background: none;
+
+        &.active:after,
+        &:hover:after,
+        &:focus:after {
+          background: $primary;
+          height: 4px;
+          @include box-shadow (0 -3px 6px rgba($maroon, .3));
+        }
+      }
+
+      .dropdown-menu {
+        // Make dropdown border overlap tab border
+        margin-top: -$nav-tabs-border-width;
+        // Remove the top rounded corners here since there is a hard edge above the menu
+        @include border-top-radius(0);
+      }
+
+  }
+
+  .tab-content {
+    margin: 0;
+    background: none;
+    border: none;
+
+    .tab-pane {
+      padding: 0;
+    }
+  }
+}

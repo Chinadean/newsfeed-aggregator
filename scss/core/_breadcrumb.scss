@@ -1,0 +1,7 @@
+.breadcrumb {
+  position: relative;
+  // @include borders($breadcrumb-borders);
+  @include border-radius(0);
+  background: none;
+  font-size: $small-font-size;
+}

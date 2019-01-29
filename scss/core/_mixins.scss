@@ -1,0 +1,207 @@
+@mixin button-social-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  border: 0;
+  @include border-radius($border-radius);
+
+  &::before {
+    width: ($padding-y * 2) + ($font-size * $line-height);
+    height: ($padding-y * 2) + ($font-size * $line-height);
+    padding: $padding-y 0;
+    font-size: $font-size;
+    line-height: $line-height;
+    @include border-radius($border-radius);
+  }
+
+  span {
+    margin-left: ($padding-y * 2) + ($font-size * $line-height);
+  }
+
+  &.icon {
+    width: ($padding-y * 2) + ($font-size * $line-height);
+    height: ($padding-y * 2) + ($font-size * $line-height);
+  }
+}
+
+@mixin avatar($width, $status-width) {
+  position: relative;
+  display: inline-block;
+  width: $width;
+
+  .img-avatar {
+    width: $width;
+    height: $width;
+  }
+
+  .avatar-status {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: $status-width;
+    height: $status-width;
+    border: 1px solid #fff;
+    border-radius: 50em;
+  }
+}
+
+@mixin borders($borders) {
+  @each $border in $borders {
+    $direction: nth($border, 1);
+    @if $direction == "all" {
+      $size: map-get(map-get($borders, $direction), size);
+      $style: map-get(map-get($borders, $direction), style);
+      $color: map-get(map-get($borders, $direction), color);
+      border: $size $style $color;
+    } @else if $direction == "top" {
+      $size: map-get(map-get($borders, $direction), size);
+      $style: map-get(map-get($borders, $direction), style);
+      $color: map-get(map-get($borders, $direction), color);
+      border-top: $size $style $color;
+    } @else if $direction == "right" {
+      $size: map-get(map-get($borders, $direction), size);
+      $style: map-get(map-get($borders, $direction), style);
+      $color: map-get(map-get($borders, $direction), color);
+      border-right: $size $style $color;
+    } @else if $direction == "bottom" {
+      $size: map-get(map-get($borders, $direction), size);
+      $style: map-get(map-get($borders, $direction), style);
+      $color: map-get(map-get($borders, $direction), color);
+      border-bottom: $size $style $color;
+    } @else if $direction == "left" {
+      $size: map-get(map-get($borders, $direction), size);
+      $style: map-get(map-get($borders, $direction), style);
+      $color: map-get(map-get($borders, $direction), color);
+      border-left: $size $style $color;
+    }
+  }
+}
+
+@mixin sidebar-width($borders, $width) {
+  $sidebar-width: $width;
+
+  @each $border in $borders {
+    $direction: nth($border, 1);
+    @if $direction == "all" {
+      $size: map-get(map-get($borders, $direction), size);
+      $sidebar-width: ($sidebar-width - (2 * $size));
+    } @else if $direction == "right" {
+      $size: map-get(map-get($borders, $direction), size);
+      $sidebar-width: $sidebar-width - $size;
+    } @else if $direction == "left" {
+      $size: map-get(map-get($borders, $direction), size);
+      $sidebar-width: $sidebar-width - $size;
+    }
+    width: $sidebar-width;
+  }
+}
+
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    @include border-radius($card-border-radius-inner $card-border-radius-inner $card-border-radius-inner $card-border-radius-inner);
+    color: #fff !important;
+    background-color: $color !important;
+  }
+  a#{$parent} {
+    @include hover-focus {
+      background-color: darken($color, 10%);
+    }
+  }
+}
+
+@mixin card-accent-variant($color) {
+  border-top-width: 2px;
+  border-top-color: $color;
+}
+
+@mixin has-state($state, $color, $icon) {
+  .has-#{$state} {
+    padding-right: 30px;
+
+    &.is-valid,
+    &.is-invalid,
+    &.is-warning,
+    &.is-info,
+    &.in-progress{
+      ~.has-icon-feedback {
+        bottom: 30px;
+        }
+      }
+    ~.has-icon-feedback {
+      position: absolute;
+      width: auto;
+      bottom: 7px;
+      right: 10px;
+      margin-top: 0;
+      display: inline-block;
+      &:after {
+        content: $icon;
+        color: $color;
+        font-family: FontAwesome;
+        font-size: inherit;
+      }
+    }
+  }
+  .has-#{$state}+.form-text {
+    ~.has-icon-feedback {
+      bottom: 30px;
+    }
+  }
+}
+
+// Top Alerts
+
+@mixin alert-variant($icon) {
+  .alert-content {
+   position: relative;
+    &:before {
+      content: $icon;
+      font-family: FontAwesome;
+      font-size: 20px;
+      line-height: 1.2;
+      position: absolute;
+      top: 0;
+      left: -32px;
+    }
+  }
+}
+
+// Notification
+
+@mixin notification-variant($background, $border, $text-color, $icon) {
+  background-color: $background;
+  border-color: $border;
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+
+  .notification-title {
+    color: $text-color;
+    font-family: inherit;
+    margin-right: 15px;
+  }
+
+  .notification-content {
+    display: block;
+    padding: 15px;
+    margin-left: 50px;
+    margin-right: 5px;
+    background-color: #fff;
+    margin-bottom: 0!important;
+
+    &:before {
+      content: $icon;
+      font-family: FontAwesome;
+      font-size: 25px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      line-height: 20px;
+      width: 50px;
+      text-align: center;
+    }
+  }
+}

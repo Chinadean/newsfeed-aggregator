@@ -1,0 +1,32 @@
+.note {
+  position: relative;
+  padding: 0.75rem 1.25rem 0.75rem 2rem;
+  border: 0 solid $gray-200;
+  border-left-width: .25rem;
+  border-radius: .25rem;
+  background: lighten($gray-200, 15%);
+  display: inline-block;
+  font-size: .875rem;
+  color: darken($gray-200, 50%);
+
+  &:before {
+    content: '\f24a';
+    font-family: 'FontAwesome';
+    position: absolute;
+    display: inline-block;
+    top: 11px;
+    left: 0;
+    width: 30px;
+    font-size: .875rem;
+    text-align: center;
+  }
+
+  ul {
+    padding-left: inherit !important;
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

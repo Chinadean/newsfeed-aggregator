@@ -1,0 +1,99 @@
+.list {
+  li {
+    padding: 4px 0;
+  }
+  &.list-bordered {
+    li {
+      border-bottom: 1px solid $gray-200;
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.list-icon {
+  padding-left: 30px;
+  list-style: none;
+
+  &.icon-sm {
+    li {
+      &:before {
+        line-height: 1.3;
+        font-size: .875rem;
+      }
+    }
+  }
+
+  li {
+    position: relative;
+    padding: 4px 0;
+    font-family: inherit;
+    &:before {
+      font-family: 'FontAwesome';
+      font-size: inherit;
+      position: absolute;
+      width: 30px;
+      display: inline-block;
+      left: -30px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    &.muted {
+      &:before {
+        color: $gray-200;
+      }
+    }
+
+    &.gray {
+      &:before {
+        color: $text-gray;
+      }
+    }
+
+    &.success,
+    &.valid {
+      &:before {
+        color: $success;
+      }
+    }
+
+    &.danger,
+    &.invalid {
+      &:before {
+        color: $danger;
+      }
+    }
+
+    &.warning {
+      &:before {
+        color: $warning;
+      }
+    }
+
+    &.info {
+      &:before {
+        color: $info;
+      }
+    }
+
+    &.primary {
+      &:before {
+        color: $primary;
+      }
+    }
+
+    &.secondary {
+      &:before {
+        color: $secondary;
+      }
+    }
+
+    &.primary-dark {
+      &:before {
+        color: $primary-dark;
+      }
+    }
+  }
+}

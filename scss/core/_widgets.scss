@@ -1,0 +1,534 @@
+
+
+.top-widget {
+  .top-widget-circle {
+    display: inline-block;
+    margin-right: 1rem;
+
+  	~.top-widget-content {
+  		display: inline-block;
+  		margin-left: .5rem;
+  	}
+  }
+}
+
+.scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+	flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .row {
+    flex-wrap: nowrap;
+    display: inline-block;
+    width: 100%;
+  }
+	div {
+		&.col-4,
+		&.col-3{
+			display: inline-block;
+			margin:0 auto;
+			width: 100%;
+		}
+		&.col-4 {
+			min-width: 230px;
+		}
+		&.col-3 {
+			min-width: 170px;
+		}
+	}
+}
+
+
+.welcome {
+  .user,
+  .date {
+    display: block;
+  }
+  .date {
+    font-size: .875rem;
+    color: $text-gray;
+  }
+}
+
+// .social-box
+.social-box {
+  min-height: 160px;
+  margin-bottom: 2 * $card-spacer-y;
+  text-align: center;
+  background: #fff;
+  border: $card-border-width solid $card-border-color;
+  @include border-radius($card-border-radius);
+
+  i {
+    display: block;
+    margin: -1px -1px 0;
+    font-size: 40px;
+    line-height: 90px;
+    background: $gray-200;
+
+    @include border-radius($card-border-radius $card-border-radius 0 0);
+  }
+
+  .chart-wrapper {
+    height: 90px;
+    margin: -90px 0 0;
+
+    canvas {
+      width: 100% !important;
+      height: 90px !important;
+    }
+  }
+
+  ul {
+    padding: 10px 0;
+    list-style: none;
+
+
+    li {
+      display: block;
+      float: left;
+      width: 50%;
+
+      &:first-child {
+        border-right: 1px solid $border-color;
+      }
+
+      strong {
+        display: block;
+        font-size: 20px;
+      }
+
+      span {
+        font-size: 10px;
+        font-weight: 500;
+        color: $border-color;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &.facebook {
+    i {
+      color: #fff;
+      background: $facebook;
+    }
+  }
+
+  &.twitter {
+    i {
+      color: #fff;
+      background: $twitter;
+    }
+  }
+
+  &.linkedin {
+    i {
+      color: #fff;
+      background: $linkedin;
+    }
+  }
+
+  &.google-plus {
+    i {
+      color: #fff;
+      background: $google-plus;
+    }
+  }
+}
+
+.horizontal-bars {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+
+    .title {
+      width: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: $text-muted;
+      vertical-align: middle;
+    }
+
+    .bars {
+      position: absolute;
+      top: 15px;
+      width: 100%;
+      padding-left: 100px;
+
+      .progress:first-child {
+        margin-bottom: 2px;
+      }
+    }
+
+    &.legend {
+      text-align: center;
+
+      .badge {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        padding: 0;
+      }
+    }
+
+    &.divider {
+      height: 40px;
+
+      i {
+        margin: 0 !important;
+      }
+    }
+  }
+
+  &.type-2 {
+
+    li {
+      overflow: hidden;
+
+      i {
+        display: inline-block;
+        margin-right: $spacer;
+        margin-left: 5px;
+        font-size: 18px;
+        line-height: 40px;
+      }
+
+      .title {
+        display: inline-block;
+        width: auto;
+        margin-top: -9px;
+        font-size: $font-size-base;
+        font-weight: normal;
+        line-height: 40px;
+        color: $body-color;
+      }
+
+      .value {
+        float: right;
+        font-weight: 600;
+      }
+
+      .bars {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.icons-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    height: 40px;
+    vertical-align: middle;
+
+    i {
+      display: block;
+      float: left;
+      width: 35px !important;
+      height: 35px !important;
+      margin: 2px;
+      line-height: 35px !important;
+      text-align: center;
+    }
+
+    .desc {
+      height: 40px;
+      margin-left: 50px;
+      border-bottom: 1px solid $border-color;
+
+      .title {
+        padding: 2px 0 0;
+        margin: 0;
+      }
+      small {
+        display: block;
+        margin-top: -4px;
+        color: $text-muted;
+      }
+    }
+
+    .value {
+      position: absolute;
+      top: 2px;
+      right: 45px;
+      text-align: right;
+
+      strong {
+        display: block;
+        margin-top: -3px;
+      }
+    }
+
+    .actions {
+      position: absolute;
+      top: -4px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+
+      i {
+        float: none;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        line-height: normal;
+      }
+    }
+
+    &.divider {
+      height: 40px;
+
+      i {
+        width: auto;
+        height: auto;
+        margin: 2px 0 0;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.image-wrapper {
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+}
+
+.v-line {
+  margin-left: -1px;
+  width: 1px;
+  background: transparentize($white, .5);
+  &.dark {
+    background: transparentize(#000000, .8);
+  }
+}
+
+.widget {
+  .widget-title {
+    margin-bottom: 1.5rem;
+  }
+  &.rank {
+    background: $primary;
+    @include box-shadow (0 3px 6px rgba($primary, .5));
+    color: $white;
+
+    .rank-level {
+      text-align: center;
+      .title {
+        margin: 0;
+      }
+      .label {
+        color: rgba($white, .8);
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+      .rank-user {
+        position: relative;
+        width: 115px;
+        height: 115px;
+        margin: 0 auto;
+        .rank-avatar {
+          background-size: cover;
+          background-position: 50% 50%;
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+        }
+        .rank-badge {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 40px;
+        }
+      }
+    }
+
+    .rank-bar {
+      padding: 1.25rem;
+      background: $primary-dark;
+      border-radius: 0 0 4px 4px;
+
+      .progress {
+        .progress-label {
+          color: $primary-dark;
+          text-shadow: none;
+          font-size: .75rem;
+          margin-top: 1px;
+        }
+      }
+    }
+    .highest {
+      .rank-level {
+        .rank-user {
+          margin-top: .5rem;
+          .rank-avatar {
+            border: 5px solid transparentize($white, .40);
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.16);
+            background-repeat: no-repeat;
+          }
+        }
+        .rank-content {
+          .title {
+            padding: .25rem 1rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 5px;
+          }
+          .label {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &.mini {
+    background: $primary;
+    @include box-shadow (0 3px 6px rgba($primary, .5));
+    color: $white;
+
+    padding: 1.25rem;
+    text-align: center;
+    border-radius: 0.25rem;
+  }
+
+  &.ewallet {
+    background: $primary;
+    @include box-shadow (0 3px 6px rgba($primary, .5));
+    color: $white;
+
+    .ewallet-row,
+    .v-line {
+      min-height: 200px;
+    }
+    .cash-col {
+      padding: 2rem 0;
+      text-align: center;
+      .cash {
+        .amount,
+        .deno {
+          display: inline-block;
+        }
+        .amount {
+          font-size: 3rem;
+        }
+        .deno {
+          margin-left: 10px;
+          color: transparentize($white, .2);
+        }
+      }
+    }
+
+    .ewallet-btn {
+      text-align: center;
+      position: relative;
+      padding: 0.75rem;
+
+      i {
+        position: absolute;
+      }
+      span {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &.payment {
+
+    .card-body {
+      border-radius: 4px 4px 0 0;
+    }
+    h5 {
+      word-break: break-all;
+    }
+
+    &.bitcoin {
+      .card-body {
+        border-top: 4px solid $warning;
+      }
+    }
+
+    &.advcash {
+      .card-body {
+        border-top: 4px solid $success;
+      }
+    }
+
+    &.asiapay, &.bankwire {
+      .card-body {
+        border-top: 4px solid $secondary;
+      }
+    }
+
+    &.payeer {
+      .card-body {
+        border-top: 4px solid $info;
+      }
+    }
+
+    &.perfectmoney {
+      .card-body {
+        border-top: 4px solid $danger;
+      }
+    }
+
+    .pay-with {
+      text-align: center;
+      .qr {
+        width: 100%;
+        max-width: 150px;
+        background: #ffffff;
+        display: inline-block;
+        border-radius: 4px;
+        border: 1px solid $gray-300;
+        margin-bottom: 10px;
+      }
+      .title {
+        font-size: .75rem;
+        color: $gray-600;
+        margin-bottom: 5px;
+      }
+      .blocktrail-logo,.crx-logo {
+        display: inline-block;
+        width: 100px;
+      }
+    }
+    .payment-footer {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+
+
+@include media-breakpoint-down(md) {
+  .image-wrapper {
+    height: 85px;
+    width: 85px;
+  }
+}

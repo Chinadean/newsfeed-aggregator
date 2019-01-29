@@ -1,0 +1,664 @@
+@include form-validation-state("valid", $form-feedback-valid-color);
+@include form-validation-state("invalid", $form-feedback-invalid-color);
+@include form-validation-state("warning", $form-feedback-warning-color);
+@include form-validation-state("info", $form-feedback-info-color);
+
+
+.form-feedback{
+  display: none;
+
+  &.is-valid {
+    display: block;
+    color: $success;
+  }
+  &.is-invalid {
+    display: block;
+    color: $danger;
+  }
+  &.is-warning {
+    display: block;
+    color: $warning;
+  }
+  &.is-info {
+    display: block;
+    color: $info;
+  }
+}
+
+.has-feedback {
+  position: relative;
+  .has-icon-feedback {
+    display: none;
+  }
+}
+
+@include has-state("success", $form-feedback-valid-color, $icon-success);
+@include has-state("valid", $form-feedback-valid-color, $icon-valid);
+@include has-state("danger", $form-feedback-invalid-color, $icon-danger);
+@include has-state("invalid", $form-feedback-invalid-color, $icon-invalid);
+@include has-state("warning", $form-feedback-warning-color, $icon-warning);
+@include has-state("info", $form-feedback-info-color, $icon-info);
+
+.progress-feedback {
+  display: none;
+}
+
+.in-progress {
+  ~.progress-feedback {
+    display: inline-block;
+    font-size: $small-font-size;
+    margin-top: 0.25rem;
+    padding-left: 20px;
+    position: relative;
+
+    &:before {
+      content: "\f1ce";
+      color: $secondary;
+      font-family: 'FontAwesome';
+      font-size: inherit;
+      position: absolute;
+      width: 20px;
+      display: inline-block;
+      left: 0;
+      text-align: center;
+      line-height: 1.35;
+      -webkit-animation: fa-spin 1.5s infinite linear;
+              animation: fa-spin 1.5s infinite linear;
+    }
+  }
+}
+
+.warning-tooltip {
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  display: none;
+  max-width: 100%; // Contain to parent when possible
+  padding: .5rem;
+  margin-top: .1rem;
+  font-size: .875rem;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba($warning, .8);
+  border-radius: .2rem;
+}
+
+.form-control,
+.custom-select {
+  .was-validated,
+  &.is-warning {
+    border-color: $warning;
+
+    &:focus {
+      border-color: $warning;
+      box-shadow: 0 0 0 $input-focus-width rgba($warning, .25);
+    }
+
+    ~ .warning-feedback,
+    ~ .warning-tooltip {
+      display: block;
+    }
+  }
+}
+
+.form-check-input {
+  .was-validated,
+  &.is-warning {
+    ~ .form-check-label {
+      color: $warning;
+    }
+
+    ~ .warning-feedback,
+    ~ .warning-tooltip {
+      display: block;
+    }
+  }
+}
+
+.custom-control-input {
+  .was-validated,
+  &.is-warning {
+    ~ .custom-control-label {
+      color: $warning;
+
+      &::before {
+        background-color: lighten($warning, 25%);
+      }
+    }
+
+    ~ .warning-feedback,
+    ~ .warning-tooltip {
+      display: block;
+    }
+
+    &:checked {
+      ~ .custom-control-label::before {
+        @include gradient-bg(lighten($warning, 10%));
+      }
+    }
+
+    &:focus {
+      ~ .custom-control-label::before {
+        box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-focus-width rgba($warning, .25);
+      }
+    }
+  }
+}
+
+// custom file
+.custom-file-input {
+  .was-validated,
+  &.is-warning {
+    ~ .custom-file-label {
+      border-color: $warning;
+
+      &::before { border-color: inherit; }
+    }
+
+    ~ .warning-feedback,
+    ~ .warning-tooltip {
+      display: block;
+    }
+
+    &:focus {
+      ~ .custom-file-label {
+        box-shadow: 0 0 0 $input-focus-width rgba($warning, .25);
+      }
+    }
+  }
+}
+
+.info-tooltip {
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  display: none;
+  max-width: 100%; // Contain to parent when possible
+  padding: .5rem;
+  margin-top: .1rem;
+  font-size: .875rem;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba($info, .8);
+  border-radius: .2rem;
+}
+
+.form-control,
+.custom-select {
+  .was-validated,
+  &.is-info {
+    border-color: $info;
+
+    &:focus {
+      border-color: $info;
+      box-shadow: 0 0 0 $input-focus-width rgba($info, .25);
+    }
+
+    ~ .info-feedback,
+    ~ .info-tooltip {
+      display: block;
+    }
+  }
+}
+
+.form-check-input {
+  .was-validated,
+  &.is-info {
+    ~ .form-check-label {
+      color: $info;
+    }
+
+    ~ .info-feedback,
+    ~ .info-tooltip {
+      display: block;
+    }
+  }
+}
+
+.custom-control-input {
+  .was-validated,
+  &.is-info {
+    ~ .custom-control-label {
+      color: $info;
+
+      &::before {
+        background-color: lighten($info, 25%);
+      }
+    }
+
+    ~ .info-feedback,
+    ~ .info-tooltip {
+      display: block;
+    }
+
+    &:checked {
+      ~ .custom-control-label::before {
+        @include gradient-bg(lighten($info, 10%));
+      }
+    }
+
+    &:focus {
+      ~ .custom-control-label::before {
+        box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-focus-width rgba($info, .25);
+      }
+    }
+  }
+}
+
+// custom file
+.custom-file-input {
+  .was-validated,
+  &.is-info {
+    ~ .custom-file-label {
+      border-color: $info;
+
+      &::before { border-color: inherit; }
+    }
+
+    ~ .info-feedback,
+    ~ .info-tooltip {
+      display: block;
+    }
+
+    &:focus {
+      ~ .custom-file-label {
+        box-shadow: 0 0 0 $input-focus-width rgba($info, .25);
+      }
+    }
+  }
+}
+
+
+.form-action {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+// Form wizard
+.vue-form-wizard .wizard-tab-content {
+  padding: 0;
+}
+
+.wizard-nav {
+  margin-bottom: 3rem !important;
+}
+
+.wizard-icon {
+  font-size: 1rem !important;
+}
+
+.wizard-progress-with-circle,
+.wizard-nav {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.vue-form-wizard {
+  &.md .wizard-icon-circle {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem !important;
+    border-color: $primary !important;
+    border-width: 2px;
+    font-weight: normal;
+    font-family: inherit;
+    color: $primary;
+
+    &:hover {
+      background-color: $primary !important;
+      color: #ffffff;
+    }
+
+
+    .wizard-icon-container {
+      background-color: $primary !important;
+      @include box-shadow (0 3px 6px rgba($primary, .3));
+      &:hover {
+        @include box-shadow (0 6px 6px rgba($primary, .3));
+      }
+      @include transition($btn-transition);
+
+    }
+
+  }
+  .wizard-nav-pills > li > a {
+    &:focus, &:hover {
+      color: $primary;
+    }
+  }
+  &.md {
+    .wizard-navigation .wizard-progress-with-circle {
+      position: relative;
+      top: 20px;
+      height: 4px;
+      display: flex;
+    }
+  }
+}
+
+.wizard-icon {
+  font-style: normal;
+}
+
+.vue-form-wizard {
+  &.wizard-mini {
+    .wizard-navigation .wizard-progress-with-circle .wizard-progress-bar {
+      background-color: $primary!important;
+      height: 2px;
+      width: 50% !important;
+      margin: auto;
+    }
+  }
+}
+
+.vue-form-wizard .wizard-navigation .wizard-progress-with-circle .wizard-progress-bar {
+  background-color: $primary!important;
+  height: 2px;
+  width: 70% !important;
+  margin: auto;
+}
+
+.wizard-nav {
+  .active .stepTitle {
+    color: $primary!important;
+  }
+  .disabled .wizard-icon-circle {
+    color: $gray-200;
+    border-color: $gray-200 !important;
+    box-shadow: none;
+  }
+}
+
+.vue-form-wizard {
+  .wizard-nav-pills > li > a {
+    color: $primary;
+  }
+  .wizard-nav-pills > li > a.disabled span {
+    color: $gray-200;
+  }
+  .wizard-card-footer{
+    padding:0;
+  }
+  .wizard-btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: normal;
+    color: $white;
+    border-color: $primary !important;
+    background-color: $primary !important;
+    @include box-shadow (0 3px 6px rgba($primary, .3));
+    &:hover {
+      background-color: darken($primary, 7.5%);
+      @include box-shadow (0 6px 5px rgba($primary, .3));
+    }
+
+    &:focus,
+    &.focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+        box-shadow: $btn-box-shadow, 0 0 0 $btn-focus-width rgba($primary, .5);
+    }
+
+    // Disabled comes first so active can properly restyle
+    &.disabled,
+    &:disabled {
+      color: color-yiq($primary);
+      background-color: $primary;
+      border-color: $primary;
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+      background-image: none;
+      background-color: darken($primary, 7.5%) !important;
+
+      @include box-shadow($btn-active-box-shadow);
+        &:focus,
+        &.focus {
+          // Avoid using mixin so we can pass custom focus shadow properly
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(230, 69, 91, 0.5) !important
+        }
+    }
+  }
+}
+
+.wizard-header {
+  display: none;
+}
+
+.vue-form-wizard .wizard-card-footer .wizard-footer-left {
+  display: none;
+}
+
+.upload {
+  padding: .5rem 1rem;
+  border: 1px solid $gray-200;
+  border-radius: 4px;
+  &:hover {
+    cursor: pointer;
+  }
+  .upload-file {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    .upload-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $secondary;
+    }
+  }
+  &.attached {
+    &:hover {
+      cursor: default;
+    }
+    .upload-file {
+      text-align: left;
+      .upload-title {
+        color: $text-color;
+      }
+    }
+    .upload-actions {
+      float: right;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.btn-card_scroll {
+  overflow: hidden;
+  overflow-x: auto;
+  padding: 1rem 0;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    position: absolute;
+    height: 8px;
+    margin-left: -10px;
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: lighten($sidebar-bg, 5%);
+    border-right: 1px solid darken($sidebar-bg, 5%);
+    border-left: 1px solid darken($sidebar-bg, 5%);
+    border-radius: 0.25rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: darken($sidebar-bg, 10%);
+    background-clip: content-box;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.25rem;
+  }
+}
+
+.btn-card-mini {
+  .btn-card {
+    min-width: 125px;
+    text-align: center;
+    margin-right: 1rem;
+
+    &:first-child {
+      margin-left: 1rem;
+    }
+  }
+}
+.btn-card {
+  position: relative;
+  display: inline-block;
+  color: $text-color;
+  border: 1px solid $gray-200;
+  background-color: $white;
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 15px;
+  margin-bottom: 15px;
+  @include transition($btn-transition);
+
+  @include box-shadow (0 3px 6px rgba($black, .1));
+  &:hover {
+    background-color: darken($white, 7.5%);
+    @include box-shadow (0 6px 5px rgba($black, .125));
+  }
+
+  &:active,
+  &.active,
+  &.selected {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(230, 69, 91, 0.5);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(230, 69, 91, 0.5);
+  border-color: rgba(230, 69, 91, 0.5);
+  }
+  .select-icon {
+    display: none;
+  }
+  .label {
+    font-size: .875rem;
+    color: #536c79;
+    display: inline-block;
+  }
+  .title {
+    font-size: 1.5rem;
+    display: inline-block;
+  }
+
+  &.selected {
+    .select-icon{
+      position: absolute;
+      display: inline-block;
+      top: 5px;
+      right: 0;
+      width: 30px;
+      font-family: 'FontAwesome';
+      font-size: .875rem;
+      text-align: center;
+      color: $primary;
+      &:after {
+          content: '\F058';
+      }
+    }
+  }
+}
+
+
+.package {
+  text-align: center;
+  margin: 1rem 0;
+  .label {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .75rem;
+    color: $gray-400;
+    letter-spacing: 1px;
+  }
+  .credits {
+    h1,
+    span {
+      display: inline-block;
+    }
+    span,
+    .deno {
+      margin-left: 5px;
+      color: $gray-600;
+    }
+  }
+  .amount {
+    margin: 0;
+    color: $gray-600;
+  }
+}
+
+.blocks-container {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 2px solid $gray-100;
+
+  .blocks {
+    display: inline-block;
+    flex-grow: 1;
+    height:auto;
+    width: calc(100% * (1/2));
+    border-bottom: 1px solid $gray-100;;
+    padding:.5rem 1rem;
+    background-color: #ffffff;
+
+    &:nth-last-child(-n+2){
+      border-bottom: 2px solid $gray-100;
+    }
+
+    .label {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 10px;
+      color: $gray-600;
+      letter-spacing: 1px;
+    }
+    .calculate {
+      .title {
+        margin-right: 5px;
+      }
+      .data {
+        color: $success;
+        font-weight: bold;
+        display: inline-block;
+      }
+      i,
+      .text {
+        color: $gray-300;
+      }
+    }
+  }
+}
+
+.sponsorWizard{
+  .form-control.is-invalid{
+    border:1px solid #c2cfd6;
+  }
+}
+
+.has-invalid.is-invalid.no-instruction ~ .has-icon-feedback{
+  bottom:7px;
+}
+
+.header-select {
+  display: inline-block;
+  select {
+    height: auto;
+    padding: 0 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+select {
+  &.clean {
+    border: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
